@@ -32,13 +32,13 @@ l'application est equipé d'un swagger qui permet de faire des appels aux endpoi
 ```
 {
     "id": long,
-    "titre": string,
+    "tile": string,
     "description": string
-    "acteurs": [
+    "actors": [
         {
             "id": long,
-            "nom": string,
-            "prenom": string
+            "name": string,
+            "lastName": string
         }
     ]
 }
@@ -57,18 +57,18 @@ l'application est equipé d'un swagger qui permet de faire des appels aux endpoi
 http://localhost:8080/api/film/getAll
 {
    "id":1,
-   "titre":"Star Wars: The Empire Strikes Back",
+   "title":"Star Wars: The Empire Strikes Back",
    "description":"Darth Vader is adamant about turning Luke Skywalker to the dark side.",
-   "acteurs":[
+   "actors":[
       {
          "id":2,
-         "nom":"Ford",
-         "prenom":"Harrison"
+         "name":"Ford",
+         "lastName":"Harrison"
       },
       {
          "id":3,
-         "nom":"Hamill",
-         "prenom":"Mark"
+         "name":"Hamill",
+         "lastName":"Mark"
       }
    ]
 }
@@ -85,18 +85,18 @@ http://localhost:8080/api/film/getAll
 http://localhost:8080/api/film/1
 {
    "id":1,
-   "titre":"Star Wars: The Empire Strikes Back",
+   "title":"Star Wars: The Empire Strikes Back",
    "description":"Darth Vader is adamant about turning Luke Skywalker to the dark side.",
-   "acteurs":[
+   "actors":[
       {
          "id":2,
-         "nom":"Ford",
-         "prenom":"Harrison"
+         "name":"Ford",
+         "lastName":"Harrison"
       },
       {
          "id":3,
-         "nom":"Hamill",
-         "prenom":"Mark"
+         "name":"Hamill",
+         "lastName":"Mark"
       }
    ]
 }
@@ -110,16 +110,16 @@ http://localhost:8080/api/film/1
 
 ```
 '{
-   "titre":"Star Wars: The Empire Strikes Back",
+   "title":"Star Wars: The Empire Strikes Back",
    "description":"Darth Vader is adamant about turning Luke Skywalker to the dark side.",
-   "acteurs":[
+   "actors":[
       {
-         "nom":"Ford",
-         "prenom":"Harrison"
+         "name":"Ford",
+         "lastName":"Harrison"
       },
       {
-         "nom":"Hamill",
-         "prenom":"Mark"
+         "name":"Hamill",
+         "lastName":"Mark"
       }
    ]
 }'
@@ -127,18 +127,18 @@ http://localhost:8080/api/film --header "Content-Type:application/json"
 
 {
    "id":4,
-   "titre":"Star Wars: The Empire Strikes Back",
+   "title":"Star Wars: The Empire Strikes Back",
    "description":"Darth Vader is adamant about turning Luke Skywalker to the dark side.",
-   "acteurs":[
+   "actors":[
       {
          "id":5,
-         "nom":"Ford",
-         "prenom":"Harrison"
+         "name":"Ford",
+         "lastName":"Harrison"
       },
       {
          "id":6,
-         "nom":"Hamill",
-         "prenom":"Mark"
+         "name":"Hamill",
+         "lastName":"Mark"
       }
    ]
 }
