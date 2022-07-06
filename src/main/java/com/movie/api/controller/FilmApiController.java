@@ -1,7 +1,10 @@
 package com.movie.api.controller;
 
+
 import com.movie.api.model.Entities;
-import com.movie.api.repository.FilmRepository;
+import com.movie.api.services.FilmService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,23 +16,31 @@ import java.util.List;
 public class FilmApiController {
 
     @Autowired
-    FilmRepository filmRepository;
+    FilmService filmService;
 
+    @Operation(summary = "it shows all films and their actors")
     @GetMapping(path = "getAll")
     public List<Entities.Film> getFilms() {
-        return filmRepository.findAll();
+        return filmService.findAll();
     }
 
+    @Operation(summary = "allows to register a new film")
     @PostMapping(path = "save")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveFilm(@RequestBody Entities.Film film) throws IllegalStateException {
-        var actors = film.getActors();
-        actors.forEach(actor -> actor.setFilm(film));
-        filmRepository.save(film);
+    public Entities.Film saveFilm(@RequestBody Entities.Film film) {
+        return filmService.saveFilm(film);
     }
 
+    @Operation(summary = "Lookup film by Id")
     @GetMapping(path = "{filmId}")
-    public Entities.Film getFilmById(@PathVariable("filmId") Long filmId) throws Exception {
-        return filmRepository.findById(filmId).orElseThrow(() -> new Exception("Film with id <filmId> not found".replace("<filmId>", Long.toString(filmId))));
+    public Entities.Film getFilmById(@Parameter(description = "a film id number", example = "12") @PathVariable("filmId") Long filmId) throws IllegalStateException {
+        return filmService.findById(filmId);
     }
+
+    @Operation(summary = "delete film by id")
+    @DeleteMapping(path = "{filmId}")
+    public void removeFilmById(@Parameter(description = "film id number", example = "12") @PathVariable("filmId") Long filmId) {
+        filmService.deleteFilmById(filmId);
+    }
+
 }
