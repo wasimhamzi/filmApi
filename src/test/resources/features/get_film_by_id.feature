@@ -1,4 +1,4 @@
-Feature: Test Dummy Calculator
+Feature: Test fetch film
 
     Scenario Outline: Send a request to get film by id
         Given the following film
