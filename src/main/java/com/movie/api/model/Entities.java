@@ -2,10 +2,7 @@ package com.movie.api.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 import lombok.experimental.UtilityClass;
 
 import javax.persistence.*;
@@ -14,10 +11,7 @@ import java.util.List;
 @UtilityClass
 public class Entities {
 
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Getter
-    @Setter
+    @Data
     @Entity
     @Table(name = "Films")
     public static class Film {
@@ -32,10 +26,7 @@ public class Entities {
 
     }
 
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Getter
-    @Setter
+    @Data
     @Entity
     @Table(name = "Actors")
     public static class Actor {
